@@ -1,0 +1,13 @@
+.crystal {
+	width: 32px;
+	height: 32px;
+  animation: play .5s steps(8) infinite;
+}
+
+@keyframes play {
+   100% { background-position: -256px; }
+}
+
+body{
+	background-color: #555;
+}
