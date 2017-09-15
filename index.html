@@ -6,13 +6,32 @@
   <title>Crystal Collector</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="assets/js/game.js"></script>
 </head>
 
 <body>
 
-	<h1>Crystal Collector</h1>
-	<div id="crystal-options"></div>
+	<div class="container" style="width: 420px">
+		<div class="row">
+			<div class="col border rounded">
+				<div class="row px-2">
+					<div class="col-2 text-center"><span><small>score</small></span></div>
+					<div class="col-8 text-center"><span><small>collection</small></span></div>
+					<div class="col-2 text-center"><span><small>point</small></span></div>
+				</div>
+				<div class="row px-2">
+					<div id="player" class="col-2 border rounded-left border-right-0 vertical-align"><span class="align-middle">25</span></div>
+					<div id="collection" class="col-8 border pt-2"></div>
+					<div id="point" class="col-2 border rounded-right border-left-0 align-middle vertical-align">119</div>
+				</div>
+				<div class="row vertical-align">
+					<div id="crystal-buttons" class="col-12 text-center pt-2"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="assets/js/game.js"></script>
 </body>
 </html>

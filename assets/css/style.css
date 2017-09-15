@@ -4,10 +4,20 @@
   animation: play .5s steps(8) infinite;
 }
 
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+#collection{
+	min-height:49px;
+}
+
 @keyframes play {
    100% { background-position: -256px; }
 }
 
 body{
-	background-color: #555;
+	background-color: #fff;
+	margin-top: 25px;
 }
