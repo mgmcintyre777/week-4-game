@@ -28,6 +28,7 @@ function initGameDisplay(g){
 	$('#point').empty();				
 	
 	var colors = ['blue', 'green', 'grey', 'orange', 'pink', 'yellow'];
+	
 	g.crystals.forEach(function(element, index){
 
 		var color = colors.splice(Math.floor(colors.length * Math.random()), 1);
