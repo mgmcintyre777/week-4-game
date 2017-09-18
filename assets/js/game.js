@@ -2,52 +2,60 @@ $(document).ready(function() {
 
 	var scoreboard = {wins:0,loses:0};
 	var game = new crystalCollector();
-	
-	
+	initGameDisplay(game);
 
-	function crystalCollector(){ // CrystalCollector game obj
-		this.point = rng(19, 120);
-		this.crystals = [rng(1,12),rng(1,12),rng(1,12),rng(1,12)];
-		this.player = 0;
-		createCrystalButtons(this);
+});		
 
-		this.clickCrystal = function(n){
-			this.player += this.crystals[n];			
-		}
+function crystalCollector(){ // CrystalCollector game obj
+	this.point = rng(19, 120);
+	this.crystals = [rng(1,12),rng(1,12),rng(1,12),rng(1,12)];
+	this.player = 0;	
 
-		this.gameState = function(){ // 0-guess, 1-win, 2-loss
-			return this.point - this.player > 0 ? 0 : (this.point - this.player < 0 ? 2 : 1);
-		}
+	this.collectCrystal = function(n){
+		this.player += this.crystals[n];			
 	}
 
-	function createCrystalButtons(theGame){				
-		
-		var colors = ['blue', 'green', 'grey', 'orange', 'pink', 'yellow'];
-		theGame.crystals.forEach(function(element, index){
+	this.getGameState = function(){ // 0-picking crystals, 1-win, 2-loss
+		return this.point - this.player > 0 ? 0 : (this.point - this.player < 0 ? 2 : 1);
+	}
+}
 
-			var color = colors.splice(Math.floor(colors.length * Math.random()), 1);
-			var crystal = $("<span>").addClass("crystal d-inline-block");						
-			
-			crystal.css({'background-image': 'url(assets/img/crystal-' + color + '.png)'});
-			crystal.attr({'data-index': index, 'data-color': color});
+function initGameDisplay(g){
 
-			crystal.on("click", function() {
-	      theGame.clickCrystal($(this).attr("data-index"));
-	      collectCrystal($(this).attr("data-color"));
-	    });
+	$('#crystal-buttons').empty();
+	$('#collection').empty();
+	$('#player').empty();
+	$('#point').empty();				
+	
+	var colors = ['blue', 'green', 'grey', 'orange', 'pink', 'yellow'];
+	g.crystals.forEach(function(element, index){
 
-			$('#crystal-buttons').append(crystal);
-		});	// end forEach()	
-	} // end createCrystalButtons()
-
-	function collectCrystal(color){
-		var crystal = $("<span>").addClass("crystal d-inline-block");
+		var color = colors.splice(Math.floor(colors.length * Math.random()), 1);
+		var crystal = $("<span>").addClass("crystal d-inline-block");		
 		crystal.css({'background-image': 'url(assets/img/crystal-' + color + '.png)'});
-		$('#collection').append(crystal);
-	} 
+		crystal.attr({'data-index': index, 'data-color': color});
 
-	function rng(low, high){
-		return Math.floor(Math.random() * (high - low + 1)) + low;
-	}//end rng()
+		crystal.on("click", function() {
+			if(g.getGameState() === 0){
+	      g.collectCrystal($(this).attr("data-index"));
+	      updateGameDisplay(g, $(this));}});//end onClick
 
-});
+		$('#crystal-buttons').append(crystal);		
+	});// end forEach
+
+	$('#player').html(g.player);
+	$('#point').html(g.point);	
+}
+
+function updateGameDisplay(g, clicked){
+	var crystal = $("<span>").addClass("crystal d-inline-block");
+	crystal.css({'background-image': 'url(assets/img/crystal-' + clicked.attr("data-color") + '.png)'});
+	$('#collection').append(crystal);
+	$('#player').html(g.player);
+	$('#point').html(g.point);
+}
+
+function rng(low, high){
+	return Math.floor(Math.random() * (high - low + 1)) + low;
+}
+

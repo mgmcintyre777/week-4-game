@@ -4,13 +4,12 @@
   animation: play .5s steps(8) infinite;
 }
 
-.vertical-align {
-    display: flex;
-    align-items: center;
-}
-
 #collection{
 	min-height:49px;
+}
+
+#player, #point {
+	max-height: 49px;
 }
 
 @keyframes play {
