@@ -12,8 +12,11 @@
 
 	<div class="container" style="width: 420px">
 		<div class="row">
-			<div class="col border rounded">
-				<div class="row vertical-align">
+			<div id="title" class="col-12 pb-2">Crystal Collector</div>
+		</div>
+		<div class="row">
+			<div class="col border rounded">				
+				<div class="row">
 					<div id="crystal-buttons" class="col-12 text-center pt-2"></div>
 				</div>
 				<div id="txt-headers" class="row px-2">
@@ -22,14 +25,16 @@
 					<div class="col-2 text-center"><span><small>point</small></span></div>
 				</div>
 				<div class="row px-2 pb-2">
-					<div id="player" class="col-2 border rounded-left border-right-0"></div>
+					<div id="player" class="col-2 border rounded-left border-right-0 text-center"></div>
 					<div id="collection" class="col-8 border pt-2"></div>
-					<div id="point" class="col-2 border rounded-right border-left-0"></div>
+					<div id="point" class="col-2 border rounded-right border-left-0 text-center"></div>
 				</div>				
-			</div>
+			</div>			
+		</div>		
+		<div class="row pt-2">
+			<div id="score" class="col-12 text-center"><span id="newgame" class="border rounded px-1">surrender</span></div>
 		</div>
-	</div>
-		
+	</div>		
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="assets/js/game.js"></script>

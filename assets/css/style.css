@@ -12,11 +12,14 @@
 	max-height: 49px;
 }
 
+#newgame{
+	background-color: lightblue;
+}
+
 @keyframes play {
    100% { background-position: -256px; }
 }
 
-body{
-	background-color: #fff;
+body{	
 	margin-top: 25px;
 }
